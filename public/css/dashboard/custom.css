@@ -1,0 +1,25 @@
+.bg-gradient-primary {
+    background-color: #151515 !important; 
+    background-image: none !important;
+    background-size: cover !important;
+}
+.sidebar-dark .nav-item .nav-link {
+    color: #eee;
+}
+.sidebar-dark .nav-item .nav-link i {
+    color: #fe0000;
+}
+.bg-grey-dark{
+    background-color: #303030;
+}
+.sidebar-dark #sidebarToggle {
+    background-color: #fe0000 !important;
+}
+.sidebar-dark #sidebarToggle::after {
+    color: #fff !important;
+}
+footer .copyright span{
+    color: #fe0000 !important;
+    font-weight: 700;
+    font-size: 16px;
+}
