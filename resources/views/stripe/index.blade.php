@@ -4,6 +4,7 @@
                    <div class="container">  
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
+                            @if(session('cart') > 0)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="row text-center">
@@ -28,14 +29,14 @@
                                         <div class='form-row row'>
                                             <div class='col-xs-12 form-group required'>
                                                 <label class='control-label'>Name on Card</label> <input
-                                                    class='form-control' size='4' type='text'>
+                                                    class='form-control' size='4' name="customername" type='text'>
                                             </div>
                                         </div>
                   
                                         <div class='form-row row'>
                                             <div class='col-xs-12 form-group card required'>
                                                 <label class='control-label'>Card Number</label> <input
-                                                    autocomplete='off' class='form-control card-num' size='20'
+                                                    autocomplete='off' class='form-control card-num' name="cardno" size='20'
                                                     type='text'>
                                             </div>
                                         </div>
@@ -43,17 +44,17 @@
                                         <div class='form-row row'>
                                             <div class='col-xs-12 col-md-4 form-group cvc required'>
                                                 <label class='control-label'>CVC</label> 
-                                                <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 415' size='4'
+                                                <input autocomplete='off' class='form-control card-cvc' name="cvc" placeholder='e.g 415' size='4'
                                                     type='text'>
                                             </div>
                                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                                 <label class='control-label'>Expiration Month</label> <input
-                                                    class='form-control card-expiry-month' placeholder='MM' size='2'
+                                                    class='form-control card-expiry-month' name="expirymonth" placeholder='MM' size='2'
                                                     type='text'>
                                             </div>
                                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                                 <label class='control-label'>Expiration Year</label> <input
-                                                    class='form-control card-expiry-year' placeholder='YYYY' size='4'
+                                                    class='form-control card-expiry-year' placeholder='YYYY' name="expiryyear" size='4'
                                                     type='text'>
                                             </div>
                                         </div>
@@ -66,13 +67,17 @@
                   
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button class="btn btn-danger btn-lg btn-block" type="submit">Pay Now (₹100)</button>
+                                                <button class="btn btn-danger btn-lg btn-block" type="submit">Pay Now (R {{Session::get('total')}})</button>
                                             </div>
                                         </div>
                                           
                                     </form>
                                 </div>
-                            </div>        
+                            </div>   
+                            @else
+                            <p>The cart is empty. Select an item to purchase</p>   
+                            
+                            @endif
                         </div>
                     </div>
                 </div>

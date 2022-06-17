@@ -34,8 +34,8 @@
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
+                                        <th>Tattoo-#Me Item</th>
+                                        <th>Unit Price</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
                                         <th>Remove</th>
@@ -49,8 +49,8 @@
                                                 <p>{{$cartitem['name']}}</p>
                                             </div>
                                         </td>
-                                        <td>${{$cartitem['quantity']}}</td>
-                                        <td>
+                                        <td>R {{$cartitem['price']}}</td>
+                                        <td class="text-center">
                                             {{-- <div class="qty">
                                                 <button class="btn-minus"><i class="fa fa-minus"></i></button>
                                                 <input type="text" value="{{$cartitem['quantity']}}">
@@ -60,17 +60,17 @@
                                                 @csrf
                                                 <input type="submit" value="-" name="decreaseproductquantity">
                                                 <input type="hidden" value="{{$cartitem['id']}}" name="id" >
-                                                <input type="text" name="quantity" value="{{$cartitem['quantity']}}" readonly>
+                                                <input class="text-center" type="text" name="quantity" value="{{$cartitem['quantity']}}" readonly>
                                                 <input type="submit" value="+" name="increaseproductquantity">
                                             </form>
                                         </td>
                                         <td>${{$cartitem['price'] * $cartitem['quantity']}}.00</td>
-                                        <td>
+                                        <td class="text-center">
                                             <form action="{{route('removefromcart')}}" method="POST">
                                                 <input type="hidden" value="{{$cartitem['id']}}" name="id" >
                                                 @csrf
                                              {{-- <button type="submit" class="btn btn-sm btn-danger">Remove</button> --}}
-                                                <button type="submit"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" class="text-danger" style="border: 0px;"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -96,11 +96,11 @@
                                         {{-- <p>Sub Total<span>$99</span></p> --}}
                                         {{-- <p>Shipping Cost<span>$1</span></p> --}}
                                         <hr>
-                                        <p>Grand Total<span>${{Session::get('total')}}</span></p>
+                                        <p>Grand Total: <span>R {{Session::get('total')}}</span></p>
                                     </div>
                                     <div class="cart-btn">
-                                        <form action="{{route('checkout')}}" method="GET">
-                                            <button style="float: right;" type="submit">Checkout</button>
+                                        <form action="{{route('stripe-form')}}" method="GET">
+                                            <button style="float: right;" class="btn btn-lg btn-danger" type="submit">Checkout</button>
                                         </form>
                                     </div>
                                 </div>

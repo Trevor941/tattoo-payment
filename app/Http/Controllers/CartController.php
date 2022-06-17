@@ -10,7 +10,7 @@ class CartController extends Controller
     public function cart(){
 
 return view('cart.index');
-      //  dd(session()->all());
+      //dd(session()->all());
       // Session::flush();
      }
  
