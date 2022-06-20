@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-//Auth::routes();
+Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/tattoos', [App\Http\Controllers\TattoosController::class, 'index'])->name('tattoos.list');
 // Route::get('/piercings', [App\Http\Controllers\PiercingsController::class, 'index'])->name('piercings.list');
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', function () {
