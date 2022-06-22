@@ -17,16 +17,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Auth::routes();
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/tattoos', [App\Http\Controllers\TattoosController::class, 'index'])->name('tattoos.list');
 // Route::get('/piercings', [App\Http\Controllers\PiercingsController::class, 'index'])->name('piercings.list');
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->group(function ()    {
     Route::get('/', function () {
         return view('index');
     });
@@ -39,6 +40,11 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/add', [App\Http\Controllers\PiercingsController::class, 'add'])->name('piercings.add');      
     });
    
+    Route::prefix('/appointments')->group(function () {
+        Route::get('/', [App\Http\Controllers\AppointmentsController::class, 'index'])->name('appointments.index');   
+        Route::post('/', [App\Http\Controllers\AppointmentsController::class, 'store'])->name('appointments.store');      
+    });
+
     Route::get('/stripe-payment', [App\Http\Controllers\StripeController::class, 'index'])->name('stripe-form');
     Route::post('/stripe-payment', [App\Http\Controllers\StripeController::class, 'handlePost'])->name('stripe.payment');
     Route::get('/cart','App\Http\Controllers\CartController@cart')->name('cart');
