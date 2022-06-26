@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/tattoos', [App\Http\Controllers\TattoosController::class, 'index'])->name('tattoos.list');
 // Route::get('/piercings', [App\Http\Controllers\PiercingsController::class, 'index'])->name('piercings.list');
 Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
