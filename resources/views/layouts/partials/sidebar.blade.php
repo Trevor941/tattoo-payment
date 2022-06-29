@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
         <div class="sidebar-brand-icon">
-            <img src="https://www.tattoo.onlinewebdesigners.co.za/wp-content/uploads/2022/06/logol.png" alt="">
+            <img src="https://tattoo-me.co.za/wp-content/uploads/2022/06/logol.png" alt="">
         </div>
     </a>
 
@@ -17,7 +17,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('appointments.index')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Appointments</span></a>
+    </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTattoo"
             aria-expanded="true" aria-controls="collapseTwo">

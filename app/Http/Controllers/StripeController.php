@@ -70,7 +70,7 @@ class StripeController extends Controller
 
             Session::flash('success', '');
             Session::flush();
-            return redirect('/dashboard/thankyou')->with('sucess', 'Payment has been successfully processed.');
+            return redirect('/dashboard')->with('message', 'Payment has been successfully processed.');
         }
     }
 }

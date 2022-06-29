@@ -2,13 +2,20 @@
                    @extends('layouts.dashboard')
                    @section('content')
                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="row justify-content-center m-5">
+                        <div class="col-md-10 p-5" style="background: #eee;  text-align: center; color: #2d2d2d; border-radius: 5px;">
+                            <h3 class="font-weight-bold">Welcome to </h3>
+                            <h1  class="font-weight-bold">Tattoo Payment and Booking System</h1>
+                            <p>Select your action from the menu bar</p>
+                        </div>
+                    </div>
+                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    </div> --}}
 
-                    <!-- Content Row -->
+                    {{-- <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
@@ -324,5 +331,5 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                     @endsection

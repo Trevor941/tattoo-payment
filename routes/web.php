@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::prefix('dashboard')->group(function ()    {
+Route::middleware(['auth'])->prefix('dashboard')->group(function ()    {
     Route::get('/', function () {
         return view('index');
     });
