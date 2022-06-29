@@ -58,6 +58,7 @@ class StripeController extends Controller
 
                 $neworderitem->save();
                   
+                
             }
             
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
