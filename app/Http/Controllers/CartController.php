@@ -10,17 +10,65 @@ class CartController extends Controller
     public function cart(){
 
 return view('cart.index');
-      //dd(session()->all());
+    //  dd(session()->all());
       // Session::flush();
      }
  
      public function addToCart(Request $request, $id){
 
-        $cartitem = Piercing::find($id);
+        //$cartitem = Piercing::find($id);
     
-      if(!$cartitem){
-          abort(404);
+    //   if(!$cartitem){
+    //       abort(404);
+    //   }
+      //dd(session()->all());
+      $cart = session()->get('cart');
+      $cartarrayid = $request->id;
+      //if cart is empty then this the first product
+      if(!$cart){
+          $cart = [
+            $cartarrayid =>[
+                  "id" => $request->id,
+                  "name" => $request->name,
+                  "price" => $request->price,
+                  "quantity" => $request->quantity,
+              ]
+              ];
+ 
+              session()->put('cart', $cart);
+              $this->calculateTotalCart($request);
+              return redirect()->route('cart')->with('addeditem', 'Product added to cart successfully!');
+             }
+ 
+          // if cart not empty then check if this product exist then increment quantity
+             if(isset($cart[$cartarrayid])){
+                 $cart[$cartarrayid]['quantity']++;
+                 session()->put('cart', $cart);
+                 $this->calculateTotalCart($request);
+                 return redirect()->route('cart')->with('addeditem', 'Product added to cart successfully!');
+             }
+ 
+            // if item not exist in cart then add to cart with quantity = 1
+             $cart[$cartarrayid] = [
+                "id" => $request->id,
+                "name" => $request->name,
+                "price" => $request->price,
+                "quantity" => $request->quantity,
+             ];
+             session()->put('cart', $cart);
+             $this->calculateTotalCart($request);
+             return redirect()->route('cart')->with('addeditem', 'Product added to cart successfully!');
+          
       }
+
+
+      public function addToCartManually(Request $request){
+
+        //$cartitem = Piercing::find($id);
+    
+    //   if(!$cartitem){
+    //       abort(404);
+    //   }
       //dd(session()->all());
       $cart = session()->get('cart');
       $cartarrayid = $request->id;
@@ -61,6 +109,9 @@ return view('cart.index');
           
       }
  
+
+
+
       function calculateTotalCart(Request $request){
          $cart = $request->session()->get('cart');
          $totalprice = 0;

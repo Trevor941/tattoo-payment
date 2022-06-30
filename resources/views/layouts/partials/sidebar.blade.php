@@ -32,7 +32,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions</h6>
                 <a class="collapse-item" href="{{route('tattoos.list')}}">Tattoo List</a>
-                <a class="collapse-item" href="{{route('tattoos.add')}}">Add to Tattoo  List</a>
+                {{-- <a class="collapse-item" href="{{route('tattoos.add')}}">Add to Tattoo  List</a> --}}
             </div>
         </div>
     </li>
@@ -47,7 +47,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions</h6>
                 <a class="collapse-item" href="{{route('piercings.list')}}">Piercing List</a>
-                <a class="collapse-item" href="{{route('piercings.add')}}">Add to Piercing  List</a>
+                {{-- <a class="collapse-item" href="{{route('piercings.add')}}">Add to Piercing  List</a> --}}
             </div>
         </div>
     </li>

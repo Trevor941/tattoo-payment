@@ -50,6 +50,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function ()    {
     Route::post('/stripe-payment', [App\Http\Controllers\StripeController::class, 'handlePost'])->name('stripe.payment');
     Route::get('/cart','App\Http\Controllers\CartController@cart')->name('cart');
     Route::post('/addtocart/{id}','App\Http\Controllers\CartController@addtocart')->name('addtocart');
+    Route::post('/addtocartmanually','App\Http\Controllers\CartController@addToCartManually')->name('addtocartmanually');
     Route::post('/updatecart','App\Http\Controllers\CartController@updatecart')->name('updatecart');
    Route::post('/removefromcart','App\Http\Controllers\CartController@removefromcart')->name('removefromcart');
    Route::get('/checkout','App\Http\Controllers\Store\OrdersController@checkout')->name('checkout');

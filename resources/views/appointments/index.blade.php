@@ -75,7 +75,8 @@
                                 </table>
                             </div>
                             @else
-                            <p>No appointments available at the moment.</p>
+                            <hr>
+                            <p class="text-center">No appointments available at the moment.</p>
                             @endif
                         </div>
                     </div>

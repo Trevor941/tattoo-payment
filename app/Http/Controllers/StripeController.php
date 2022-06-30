@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Stripe;
 use App\Models\Order;
 use App\Models\OrderItem;
-
+use App\Models\User;
 class StripeController extends Controller
 {
     public function index()
@@ -37,8 +37,9 @@ class StripeController extends Controller
             $neworder->save();
 
             $cart = $request->session()->get('cart');
+            $cartitem_name = '';
             $order_id = 0;
-            $orderno = $neworder->orderno;
+           // $orderno = $neworder->orderno;
             foreach ($cart as $id => $cartitem) {
                 $cartitem = $cart[$id];
                 $cartitem_id = $cartitem['id'];
@@ -48,7 +49,7 @@ class StripeController extends Controller
 
 
                 //creating order items
-                $order_id = $neworder->id;
+               // $order_id = $neworder->id;
                 $neworderitem = new OrderItem();
                 $neworderitem->order_id = $neworder->id;
                 $neworderitem->cart_item_id = $cartitem_id;
@@ -60,18 +61,20 @@ class StripeController extends Controller
                   
                 
             }
-            
+            $user = User::where('id', 1)->first();
+
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             Stripe\Charge::create([
                 "amount" => 100 * Session::get('total'),
                 "currency" => "zar",
                 "source" => $request->stripeToken,
-                "description" => "Making test payment."
+                "description" => "Tattoo Payment" ."-" . "Order" .  $neworder->orderno
+                //"customer" => auth()->user()->name
             ]);
 
-            Session::flash('success', '');
             Session::flush();
             return redirect('/dashboard')->with('message', 'Payment has been successfully processed.');
+           // return $request->all();
         }
     }
 }

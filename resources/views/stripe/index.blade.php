@@ -8,7 +8,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="row text-center">
-                                        <h3 class="panel-heading">Payment Detailss</h3>
+                                        <h3 class="panel-heading">Payment Details</h3>
                                     </div>                    
                                 </div>
                                 <div class="panel-body">
@@ -67,7 +67,7 @@
                   
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button class="btn btn-danger btn-lg btn-block" type="submit">Pay Now (R {{Session::get('total')}})</button>
+                                                <button class="btn btn-danger btn-lg btn-block" type="submit">Pay Now (R {{ number_format(Session::get('total'), 2)}})</button>
                                             </div>
                                         </div>
                                           

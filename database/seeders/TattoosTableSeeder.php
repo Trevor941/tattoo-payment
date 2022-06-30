@@ -23,8 +23,23 @@ class TattoosTableSeeder extends Seeder
             'price' => 1000,
             'tattoos_categories_id' => 1
         ]);
-        $category1 = Tattoo::create([
+        $category3 = Tattoo::create([
             'name' => 'Full Shade',
+            'price' => 2000,
+            'tattoos_categories_id' => 1
+        ]);
+        $category4 = Tattoo::create([
+            'name' => 'One Hour Tattoo',
+            'price' => 1000,
+            'tattoos_categories_id' => 1
+        ]);
+        $category5 = Tattoo::create([
+            'name' => '30 Minutes Tattoo',
+            'price' => 500,
+            'tattoos_categories_id' => 1
+        ]);
+        $category6 = Tattoo::create([
+            'name' => 'Quick Small Tattoo',
             'price' => 2000,
             'tattoos_categories_id' => 1
         ]);

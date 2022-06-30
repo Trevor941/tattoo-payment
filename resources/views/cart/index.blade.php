@@ -33,7 +33,7 @@
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Tattoo-#Me Item</th>
                                         <th>Unit Price</th>
                                         <th>Quantity</th>
@@ -44,12 +44,12 @@
                                 <tbody class="align-middle">
                                     @foreach(session('cart') as $id => $cartitem)
                                     <tr>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="img">
                                                 <p>{{$cartitem['name']}}</p>
                                             </div>
                                         </td>
-                                        <td>R {{$cartitem['price']}}</td>
+                                        <td class="text-right">R {{ number_format($cartitem['price'], 2)}}</td>
                                         <td class="text-center">
                                             {{-- <div class="qty">
                                                 <button class="btn-minus"><i class="fa fa-minus"></i></button>
@@ -64,7 +64,7 @@
                                                 <input type="submit" value="+" name="increaseproductquantity">
                                             </form>
                                         </td>
-                                        <td>${{$cartitem['price'] * $cartitem['quantity']}}.00</td>
+                                        <td class="text-right">R {{ number_format($cartitem['price'] * $cartitem['quantity'], 2)}}</td>
                                         <td class="text-center">
                                             <form action="{{route('removefromcart')}}" method="POST">
                                                 <input type="hidden" value="{{$cartitem['id']}}" name="id" >
@@ -96,11 +96,11 @@
                                         {{-- <p>Sub Total<span>$99</span></p> --}}
                                         {{-- <p>Shipping Cost<span>$1</span></p> --}}
                                         <hr>
-                                        <p>Grand Total: <span>R {{Session::get('total')}}</span></p>
+                                        <p class="text-right">Grand Total: <span>R {{ number_format(Session::get('total'), 2)}}</span></p>
                                     </div>
                                     <div class="cart-btn">
                                         <form action="{{route('stripe-form')}}" method="GET">
-                                            <button style="float: right;" class="btn btn-lg btn-danger" type="submit">Checkout</button>
+                                            <button style="float: right;" class="btn btn-lg btn-danger" type="submit">Proceed to Payment</button>
                                         </form>
                                     </div>
                                 </div>

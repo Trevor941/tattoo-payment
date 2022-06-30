@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
-                                <div class="p-5">
+                                <div class="p-5 mt-5 mb-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Register! Tattoo #Me</h1>
                                     </div>
@@ -75,10 +75,10 @@
                                                      placeholder="Repeat Password">
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-dark btn-user btn-block">
+                                        <button type="submit" class="btn btn-danger btn-user btn-block">
                                             {{ __('Register') }}
                                         </button>
-                                        <hr>
+                                        {{-- <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Register with Google
                                         </a>
@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="/login">Already have an account? Log In.</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
