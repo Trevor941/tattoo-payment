@@ -58,7 +58,7 @@
             <footer class="sticky-footer bg-grey-dark">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2022</span>
+                        <span> &copy; 2022 Tattoo #Me - a brand by Bro4life Ltd </span>
                     </div>
                 </div>
             </footer>

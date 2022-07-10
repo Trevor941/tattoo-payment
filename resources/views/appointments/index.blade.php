@@ -11,7 +11,7 @@
                     <!-- Content Row -->
                     <div class="row p-2 justify-content-center">
                         <div class="col-md-3 p-4 bg-columns">
-                            <h5 class="text-center">Add an new appointment</h5>
+                            <h5 class="text-center">New Appointment</h5>
                             <hr>
                             <form class="" action="{{route('appointments.store')}}" method="POST">
                                 @csrf

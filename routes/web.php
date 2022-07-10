@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/tattoos', [App\Http\Controllers\TattoosController::class, 'index'])->name('tattoos.list');
 // Route::get('/piercings', [App\Http\Controllers\PiercingsController::class, 'index'])->name('piercings.list');
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', function () {
     return view('auth.login');

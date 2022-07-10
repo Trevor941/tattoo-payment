@@ -68,8 +68,8 @@ class StripeController extends Controller
                 "amount" => 100 * Session::get('total'),
                 "currency" => "zar",
                 "source" => $request->stripeToken,
-                "description" => "Tattoo Payment" ."-" . "Order" .  $neworder->orderno
-                //"customer" => auth()->user()->name
+                "description" => "Tattoo Payment" ."-" . "Order No " .  $neworder->orderno,
+                "customer" => auth()->user()->name
             ]);
 
             Session::flush();
