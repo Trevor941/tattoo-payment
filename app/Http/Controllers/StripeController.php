@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TattooMePaymentMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Stripe;
@@ -9,7 +10,9 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\User;
 use App\Notifications\TattooMePaymentNotification;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Hash;
 
 class StripeController extends Controller
 {
@@ -29,10 +32,10 @@ class StripeController extends Controller
 
             //creating new order
             $neworder = new Order();
-            $neworder->orderno = 'Tattoo#Me' . rand(100000, 999999);
+            $neworder->orderno = 'T' . rand(1000000, 9999999);
             $neworder->customername = $request->customername;
-            $neworder->cardno = $request->cardno;
-            $neworder->cvc = $request->cvc;
+            $neworder->cardno = Hash::make($request->cardno);
+            $neworder->cvc = Hash::make($request->cvc);
             $neworder->expirymonth = $request->expirymonth;
             $neworder->expiryyear = $request->expiryyear;
             $neworder->total = $request->session()->get('total');
@@ -75,8 +78,9 @@ class StripeController extends Controller
                 "customer" => auth()->user()->name
             ]);
             $newestorder = Order::latest()->first();
-            $officetattoo = User::where('id', 1)->get();
-            Notification::send($officetattoo, new TattooMePaymentNotification($newestorder));
+            $officetattoo = User::where('id', 4)->get();
+           // Notification::send($officetattoo, new TattooMePaymentNotification($newestorder));
+           Mail::to($officetattoo)->send(new TattooMePaymentMail($newestorder));
 
             Session::flush();
             return redirect('/dashboard')->with('message', 'Payment has been successfully processed.');

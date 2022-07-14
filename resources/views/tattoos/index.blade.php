@@ -55,11 +55,11 @@
                                                     <input type="hidden" name="id" class="form-control" value="tattooid<?php echo rand(100000, 999999) ?>">
                                                 <div class="form-group">
                                                     <label for="">Tattoo Name</label>
-                                                    <input type="text" name="name" class="form-control" placeholder="e.g Dragon Eyes">
+                                                    <input type="text" name="name" class="form-control" placeholder="e.g Dragon Eyes" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Price to Charge</label>
-                                                    <input type="number" step="any" class="form-control" name="price" placeholder="e.g 249.99">
+                                                    <input type="number" step="any" class="form-control" name="price" placeholder="e.g 249.99" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="hidden" name="quantity" value="1">

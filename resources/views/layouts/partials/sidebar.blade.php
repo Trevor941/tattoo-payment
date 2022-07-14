@@ -22,6 +22,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Appointments</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('orders.list')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Orders</span></a>
+    </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTattoo"
             aria-expanded="true" aria-controls="collapseTwo">

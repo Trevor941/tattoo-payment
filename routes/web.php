@@ -40,6 +40,10 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function ()    {
         Route::get('/list', [App\Http\Controllers\PiercingsController::class, 'index'])->name('piercings.list');   
         Route::get('/add', [App\Http\Controllers\PiercingsController::class, 'add'])->name('piercings.add');      
     });
+    Route::prefix('/orders')->group(function () {
+        Route::get('/list', [App\Http\Controllers\OrdersController::class, 'index'])->name('orders.list');  
+        Route::get('/list/{id}', [App\Http\Controllers\OrdersController::class, 'singleorder'])->name('orders.list.single'); 
+    });
    
     Route::prefix('/appointments')->group(function () {
         Route::get('/', [App\Http\Controllers\AppointmentsController::class, 'index'])->name('appointments.index');   
