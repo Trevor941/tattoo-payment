@@ -8,6 +8,9 @@ use Stripe;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\User;
+use App\Notifications\TattooMePaymentNotification;
+use Illuminate\Support\Facades\Notification;
+
 class StripeController extends Controller
 {
     public function index()
@@ -71,6 +74,9 @@ class StripeController extends Controller
                 "description" => "Tattoo Payment" ."-" . "Order No " .  $neworder->orderno,
                 "customer" => auth()->user()->name
             ]);
+            $newestorder = Order::latest()->first();
+            $officetattoo = User::where('id', 1)->get();
+            Notification::send($officetattoo, new TattooMePaymentNotification($newestorder));
 
             Session::flush();
             return redirect('/dashboard')->with('message', 'Payment has been successfully processed.');
