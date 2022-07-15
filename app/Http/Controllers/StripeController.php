@@ -80,7 +80,7 @@ class StripeController extends Controller
             $newestorder = Order::latest()->first();
             $officetattoo = User::where('id', 4)->get();
            // Notification::send($officetattoo, new TattooMePaymentNotification($newestorder));
-           Mail::to($officetattoo)->send(new TattooMePaymentMail($newestorder));
+           //Mail::to($officetattoo)->send(new TattooMePaymentMail($newestorder));
 
             Session::flush();
             return redirect('/dashboard')->with('message', 'Payment has been successfully processed.');
